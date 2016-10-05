@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="笔记," />
+  <meta name="keywords" content="笔记,Java," />
 
 
 
@@ -96,7 +96,7 @@ boolean contains(">
 Collection常见的方法有如下几个：
 boolean add(E e) //将给定元素添加到集合中，成功返回true，否则为false  
 boolean contains(">
-<meta property="og:updated_time" content="2016-10-03T15:50:35.671Z">
+<meta property="og:updated_time" content="2016-10-04T13:44:18.976Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="集合">
 <meta name="twitter:description" content="Collection是一个接口，定义了集合的相关的操作方法，有两个子接口，分别为List和Set，集合中存储的都是引用类型元素，只保存每个元素对象的引用。接口不能实例化，只能通过引用类型变量指向接口实现类的实例化对象。
@@ -340,8 +340,8 @@ E remove(int index) //移除列表中指定位置的元素
 List&lt;E&gt; subList(int fromIndex, int toIndex) //返回列表中指定的 fromIndex（包括 ）和 toIndex（不包括）之间的部分，修改子集合会影响原集合
 &lt;T&gt; T[] toArray(T[] a) //返回包含此集合中所有元素的数组，数组的类型与指定数组的类型相同
 </code></pre><p>可以将数组转为List集合：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">static &lt;T&gt; List&lt;T&gt; asList(T... a) //返回一个受指定数组支持的固定大小的列表，对集合的修改会影响数组，不能对集合进行增删元素</div></pre></td></tr></table></figure>
-<p>List的排序：</p>
+<pre><code>static &lt;T&gt; List&lt;T&gt; asList(T... a) //返回一个受指定数组支持的固定大小的列表，对集合的修改会影响数组，不能对集合进行增删元素
+</code></pre><p>List的排序：</p>
 <pre><code>static &lt;T extends Comparable&lt;? super T&gt;&gt; void sort(List&lt;T&gt; list) //根据元素的自然顺序 对指定列表按升序进行排序，需要实现Comparable接口并重写int comparaTo(T t)方法
 static &lt;T&gt; void sort(List&lt;T&gt; list, Comparator&lt;? super T&gt; c) //根据指定比较器产生的顺序对指定列表进行排序，需要实现Comparator接口并重写int compare(T o1,To2)
 </code></pre><ul>
@@ -399,6 +399,8 @@ Set&lt;Map.Entry&lt;K,V&gt;&gt; entrySet() //返回此映射中包含的映射�
           
             <a href="/tags/笔记/" rel="tag">#笔记</a>
           
+            <a href="/tags/Java/" rel="tag">#Java</a>
+          
         </div>
       
 
@@ -413,6 +415,10 @@ Set&lt;Map.Entry&lt;K,V&gt;&gt; entrySet() //返回此映射中包含的映射�
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/10/04/文件操作/" rel="prev" title="文件操作">
+                文件操作 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -480,7 +486,7 @@ Set&lt;Map.Entry&lt;K,V&gt;&gt; entrySet() //返回此映射中包含的映射�
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-count">4</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -497,7 +503,7 @@ Set&lt;Map.Entry&lt;K,V&gt;&gt; entrySet() //返回此映射中包含的映射�
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

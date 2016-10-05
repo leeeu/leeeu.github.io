@@ -1,0 +1,797 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="笔记,Java," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="File通过File可以操作硬盘上的文件和目录，但只能用于表示文件的信息，不能访问文件的内容。为了避免不同系统带来的差异性，目录的层级分隔符不要直接写”/“或”\”，应使用File.separator这个常量表示。
+
+常用构造方法如下：
+
+File(String pathname) //通过将给定路径名字符串转换为抽象路径名来创建一个新 File 实例
+File(File parent, Stri">
+<meta property="og:type" content="article">
+<meta property="og:title" content="文件操作">
+<meta property="og:url" content="http://yoursite.com/2016/10/04/文件操作/index.html">
+<meta property="og:site_name" content="李铕同学">
+<meta property="og:description" content="File通过File可以操作硬盘上的文件和目录，但只能用于表示文件的信息，不能访问文件的内容。为了避免不同系统带来的差异性，目录的层级分隔符不要直接写”/“或”\”，应使用File.separator这个常量表示。
+
+常用构造方法如下：
+
+File(String pathname) //通过将给定路径名字符串转换为抽象路径名来创建一个新 File 实例
+File(File parent, Stri">
+<meta property="og:updated_time" content="2016-10-05T16:39:48.048Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="文件操作">
+<meta name="twitter:description" content="File通过File可以操作硬盘上的文件和目录，但只能用于表示文件的信息，不能访问文件的内容。为了避免不同系统带来的差异性，目录的层级分隔符不要直接写”/“或”\”，应使用File.separator这个常量表示。
+
+常用构造方法如下：
+
+File(String pathname) //通过将给定路径名字符串转换为抽象路径名来创建一个新 File 实例
+File(File parent, Stri">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'leeeu'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/10/04/文件操作/"/>
+
+  <title> 文件操作 | 李铕同学 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">李铕同学</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">记录我的学习之路</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                文件操作
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-04T21:26:48+08:00" content="2016-10-04">
+              2016-10-04
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/JavaSE/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaSE</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="File"><a href="#File" class="headerlink" title="File"></a>File</h1><p>通过File可以操作硬盘上的文件和目录，但只能用于表示文件的信息，不能访问文件的内容。<br>为了避免不同系统带来的差异性，目录的层级分隔符不要直接写”/“或”\”，应使用<strong>File.separator</strong>这个常量表示。</p>
+<blockquote>
+<p>常用构造方法如下：</p>
+</blockquote>
+<pre><code>File(String pathname) //通过将给定路径名字符串转换为抽象路径名来创建一个新 File 实例
+File(File parent, String child) //根据 parent 抽象路径名和 child 路径名字符串创建一个新 File 实例
+</code></pre><blockquote>
+<p>常用方法如下：</p>
+</blockquote>
+<pre><code>boolean isFile() //测试此抽象路径名表示的文件是否是一个标准文件 
+long length() //返回由此抽象路径名表示的文件的长度(字节)
+boolean exists() //测试此抽象路径名表示的文件或目录是否存在 
+boolean createNewFile() //当且仅当不存在具有此抽象路径名指定名称的文件时，原子地创建一个新的空文件 
+boolean delete() //删除此抽象路径名表示的文件或目录，若File对象是一个目录，必须保证为空目录才能删除成功
+boolean isDirectory() //测试此抽象路径名表示的文件是否是一个目录 
+boolean mkdir() //创建此抽象路径名指定的目录 
+boolean mkdirs() //创建此抽象路径名指定的目录，包括所有必需但不存在的父目录 
+File[] listFiles() //返回一个抽象路径名数组，这些路径名表示此抽象路径名表示的目录中的文件 
+File[] listFiles(FileFilter filter) //返回满足过滤器要求的子项，需要实现FileFilter接口并重写boolean accept(File pathname)方法
+</code></pre><p>可以利用递归删除目录下的所有文件及目录：</p>
+<pre><code>void delete (File file) {
+    if(file.isDirectory()) {
+        File[] subs = file.listFiles();
+        for(File sub : subs) {
+            delete(sub);
+        }
+    }
+    delete(file);
+}
+</code></pre><p><br></p>
+<h1 id="RandomAccessFile"><a href="#RandomAccessFile" class="headerlink" title="RandomAccessFile"></a>RandomAccessFile</h1><p>RandomAccessFile可以对文件进行随机访问操作，包括读和写操作。<br>读写是基于指针的操作。</p>
+<blockquote>
+<p>构造方法如下：</p>
+<blockquote>
+<p>其中第一个参数是需要访问的文件，第二个参数是访问模式：”r”是只读模式，”rw”是读写模式</p>
+</blockquote>
+</blockquote>
+<pre><code>RandomAccessFile(File file, String mode)
+RandomAccessFile(String filename, String mode)
+</code></pre><blockquote>
+<p>常用方法如下：</p>
+</blockquote>
+<pre><code>void write(int b) //根据当前指针位置处写入一个字节，是将int的&quot;低8位&quot;写出
+int read() //从此文件中读取一个字节(8位)填充到int的低8位，高24位为0，返回-1表示读取到文件末尾
+void write(byte[] b) //将 b.length 个字节从指定 byte 数组写入到此文件，并从当前文件指针开始
+void write(byte[] b, int off, int len) //将 len 个字节从指定 byte 数组写入到此文件，并从偏移量 off 处开始 
+int read(byte[] b) //将最多 b.length 个数据字节从此文件读入 byte 数组 
+int read(byte[] b, int off, int len) //将最多 len 个数据字节从此文件读入 byte 数组 
+void close() //关闭此随机访问文件流并释放与该流关联的所有系统资源，访问完毕后要关闭
+long getFilePointer() //返回此文件中的当前偏移量 
+void seek(long pos) //用于移动当前RandomAccessFile的指针位置
+int skipBytes(int n) //尝试跳过输入的 n 个字节以丢弃跳过的字节 
+</code></pre><p><br></p>
+<h1 id="文件流"><a href="#文件流" class="headerlink" title="文件流"></a>文件流</h1><p>文件流是节点流，也称为低级流，可以从一个特定地方或向一个特定地方读写数据。</p>
+<ul>
+<li><strong>FileOutputStream：文件字节输出流</strong></li>
+</ul>
+<blockquote>
+<p>构造方法：</p>
+</blockquote>
+<pre><code>FileOutputStream(File file) //创建一个向指定 File 对象表示的文件中写入数据的文件输出流
+FileOutputStream(String name) //创建一个向具有指定名称的文件中写入数据的输出文件流
+</code></pre><font color="red" size="2"><br>注意：以上两个构造方法指定的文件若是已经包含内容，写入数据会将原文件的数据清除。<br></font>
+
+<p>若想在文件原有的数据之后追加新数据，则需用一下构造方法创建FileOutputStream对象：</p>
+<pre><code>FileOutputStream(File file, boolean append) //创建一个向指定 File 对象表示的文件中写入数据的文件输出流
+FileOutputStream(String name, boolean append) //创建一个向具有指定 name 的文件中写入数据的输出文件流
+</code></pre><p>其中当append参数为true时表示写出的数据是在文件的末尾追加的。</p>
+<blockquote>
+<p>常用方法：</p>
+</blockquote>
+<pre><code>void write(int b) //将指定字节写入此文件输出流，只写给定int的&quot;低8位&quot;
+void write(byte[] b) //将 b.length 个字节从指定 byte 数组写入此文件输出流中 
+void write(byte[] b, int off, int len) //将指定 byte 数组中从偏移量 off 开始的 len 个字节写入此文件输出流 
+</code></pre><ul>
+<li><strong>FileInputStream：文件字节输入流</strong></li>
+</ul>
+<blockquote>
+<p>常用构造方法：</p>
+</blockquote>
+<pre><code>FileInputStream(File file) //创建一个从指定 File 对象表示的文件中读取数据的文件输入流
+FileInputStream(String name) //创建用于读取给定的文件系统中的路径名 name 所指定的文件的文件输入流
+</code></pre><blockquote>
+<p>常用方法：</p>
+</blockquote>
+<pre><code>int read() //从此输入流中读取一个数据字节，返回-1表示EOF(End Of File)
+int read(byte[] b) //从此输入流中将最多 b.length 个字节的数据读入一个 byte 数组中 
+</code></pre><p><br></p>
+<h1 id="缓冲流"><a href="#缓冲流" class="headerlink" title="缓冲流"></a>缓冲流</h1><p>是处理流，也成为高级流或者过滤流，用于对一个已存在的流的连接和封装。可以一次性批量写出或者读取若干数据减少读写次数来提高读写效率。</p>
+<ul>
+<li><strong>BufferedOutputStream：缓冲字节输出流</strong></li>
+</ul>
+<blockquote>
+<p>常用方法：</p>
+</blockquote>
+<pre><code>BufferedOutputStream(OutputStream out) //创建一个新的缓冲输出流，以将数据写入指定的底层输出流
+void write(int b) //将指定的字节写入此缓冲的输出流
+void write(byte[] b) //将 b.length 个字节从指定 byte 数组写入此文件输出流中
+void flush() //刷新此缓冲的输出流，只有缓冲区满时才会把数据写出，该方法可以强制写出数据
+</code></pre><ul>
+<li><strong>BufferedInputStream:缓冲字节输入流</strong></li>
+</ul>
+<blockquote>
+<p>常用方法：</p>
+</blockquote>
+<pre><code>BufferedInputStream(InputStream in) //创建一个 BufferedInputStream 并保存其参数，即输入流 in，以便将来使用
+int read() //从此输入流中读取一个数据字节，返回-1表示EOF(End Of File)
+int read(byte[] b) //从此输入流中将最多 b.length 个字节的数据读入一个 byte 数组中 
+</code></pre><p><br></p>
+<h1 id="对象流"><a href="#对象流" class="headerlink" title="对象流"></a>对象流</h1><p>对象是存在于内存中的，当我们需要保存到硬盘上或者将对象传输到另一台计算机上等等操作时，就需要将对象装换为一个字节序列。相反，当我们有这样一个字节序列需要转换为对应的对象，就是对象的反序列化。</p>
+<ul>
+<li>ObjectOutputStream：对象序列化输出流</li>
+</ul>
+<blockquote>
+<p>常用方法：</p>
+</blockquote>
+<pre><code>ObjectOutputStream(OutputStream out) //创建写入指定 OutputStream 的对象
+void writeObject(Object obj) //将指定的对象转换为一个字节序列后写出
+</code></pre><font color="red" size="2"><br>需要序列化对象所属的类必须实现<strong>Serializable</strong>接口，该接口不需要重写任何方法，只是作为序列化的标志，通常需要提供一个常量<strong>serialVersionUID</strong>表明该类版本号。<br></font>
+
+<p>对象在序列化后得到的字节序列往往比较大，对一个对象进行序列化时可以忽略某些不必要的属性，被<strong>transient</strong>关键字修饰的属性在序列化时其值将被忽略。</p>
+<ul>
+<li>ObjectInputStream：对象反序列化输入流</li>
+</ul>
+<blockquote>
+<p>常用方法：</p>
+</blockquote>
+<pre><code>ObjectInputStream(InputStream in) //创建从指定 InputStream 读取的对象
+Object readObject() //从流中字节并转换为对应的对象
+</code></pre><p><br></p>
+<h1 id="Reader"><a href="#Reader" class="headerlink" title="Reader"></a>Reader</h1><p>是字符输入流的父类，以字符(char)为单位读数据，一次处理一个Unicode，底层是基本字节流</p>
+<blockquote>
+<p>常用方法：</p>
+</blockquote>
+<pre><code>int read() //读取单个字符,返回int的低&quot;16位&quot;有效
+int read(char[] cbuf) //将字符读入数组，返回值为读取到的实际字符量
+</code></pre><h1 id="Writer"><a href="#Writer" class="headerlink" title="Writer"></a>Writer</h1><p>是字符输出流的父类，以字符(char)为单位写数据，一次处理一个Unicode，底层是基本字节流</p>
+<blockquote>
+<p>常用方法：</p>
+</blockquote>
+<pre><code>void write(int c) //写出单个字符 
+void write(char[] cbuf) //将给定字符数组所有字符写出
+void write(String str) //将给定字符串写出
+abstract void write(char[] cbuf, int off, int len) //写入字符数组的某一部分 
+</code></pre><p><br> </p>
+<h1 id="转换流"><a href="#转换流" class="headerlink" title="转换流"></a>转换流</h1><p>继承自Reader和Writer，方法继承自父类。</p>
+<ul>
+<li>InputStreamReader：字符输入流</li>
+</ul>
+<p>使用该流可以设置字符集，并按照指定字符集从流中按照该编码将字节数据转换为字符并读取</p>
+<blockquote>
+<p>构造方法：</p>
+</blockquote>
+<pre><code>InputStreamReader(InputStream in) //创建一个使用系统默认字符集的 InputStreamReader
+InputStreamReader(InputStream in, String charsetName) //创建使用指定字符集的 InputStreamReader
+</code></pre><ul>
+<li>OutputStreamWriter：字符输出流</li>
+</ul>
+<p>使用该流可以设置字符集，并按照指定字符集将字符转换为对应字节后通过该流写出</p>
+<blockquote>
+<p>构造方法：</p>
+</blockquote>
+<pre><code>OutputStreamWriter(OutputStream out) //创建使用系统默认字符编码的 OutputStreamWriter
+OutputStreamWriter(OutputStream out, String charsetName) //创建使用指定字符集的 OutputStreamWriter
+</code></pre><p><br></p>
+<h1 id="PrintWriter"><a href="#PrintWriter" class="headerlink" title="PrintWriter"></a>PrintWriter</h1><p>是具有自动行刷新的缓冲字符输出流</p>
+<blockquote>
+<p>常用构造方法：</p>
+</blockquote>
+<pre><code>PrintWriter(File file) //使用指定文件创建不具有自动行刷新的新 PrintWriter
+PrintWriter(String fileName) //创建具有指定文件名称且不带自动行刷新的新 PrintWriter
+PrintWriter(OutputStream out) //根据现有的 OutputStream 创建不带自动行刷新的新 PrintWriter
+PrintWriter(OutputStream out, boolean autoFlush) //通过现有的 OutputStream 创建新的 PrintWriter
+PrintWriter(Writer out) //创建不带自动行刷新的新 PrintWriter
+PrintWriter(Writer out, boolean autoFlush) //创建新 PrintWriter
+</code></pre><p>其中参数为OutputStream和Writer的构造方法提供了一个可以传入boolean值的参数，用于表示PrintWriter是否具有自动行刷新。<br>PrintWriter提供了丰富的重载print于println方法，println输出后会自动输出一个系统支持的换行符。<br>若该流是具有自动行刷新，那么每当通过println方法写出内容都会被实际写出，而不是进行缓存。</p>
+<p><br></p>
+<h1 id="BufferedReader"><a href="#BufferedReader" class="headerlink" title="BufferedReader"></a>BufferedReader</h1><p>是缓冲字符输入流，内部提供了缓冲区，可以提高读取效率。</p>
+<blockquote>
+<p>常用方法：</p>
+</blockquote>
+<pre><code>BufferedReader(Reader in) //创建一个使用默认大小输入缓冲区的缓冲字符输入流
+String readLine() //读取一行字符串，读到换行符为止，不包含换行符。
+</code></pre>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/笔记/" rel="tag">#笔记</a>
+          
+            <a href="/tags/Java/" rel="tag">#Java</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/10/03/集合/" rel="next" title="集合">
+                <i class="fa fa-chevron-left"></i> 集合
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/images/avatar.jpg"
+               alt="李铕" />
+          <p class="site-author-name" itemprop="name">李铕</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#File"><span class="nav-number">1.</span> <span class="nav-text">File</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#RandomAccessFile"><span class="nav-number">2.</span> <span class="nav-text">RandomAccessFile</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#文件流"><span class="nav-number">3.</span> <span class="nav-text">文件流</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#缓冲流"><span class="nav-number">4.</span> <span class="nav-text">缓冲流</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#对象流"><span class="nav-number">5.</span> <span class="nav-text">对象流</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reader"><span class="nav-number">6.</span> <span class="nav-text">Reader</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Writer"><span class="nav-number">7.</span> <span class="nav-text">Writer</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#转换流"><span class="nav-number">8.</span> <span class="nav-text">转换流</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#PrintWriter"><span class="nav-number">9.</span> <span class="nav-text">PrintWriter</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#BufferedReader"><span class="nav-number">10.</span> <span class="nav-text">BufferedReader</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">李铕</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
