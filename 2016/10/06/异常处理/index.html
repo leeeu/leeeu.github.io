@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Java,笔记," />
+  <meta name="keywords" content="Java," />
 
 
 
@@ -84,25 +84,37 @@
 
 
 
-<meta name="description" content="Collection是一个接口，定义了集合的相关的操作方法，有两个子接口，分别为List和Set，集合中存储的都是引用类型元素，只保存每个元素对象的引用。接口不能实例化，只能通过引用类型变量指向接口实现类的实例化对象。
-Collection常见的方法有如下几个：
-boolean add(E e) //将给定元素添加到集合中，成功返回true，否则为false  
-boolean contains(">
+<meta name="description" content="Java异常中定义有Throwable类，由这个类派生出Exception和Error两个子类。其中Exception表示由于网络故障，文件损坏等情况导致的异常；而Error表示Java运行时环境出现的错误，比如JVM内存资源耗尽等。
+
+语法如下：
+
+try {
+    //该段代码可能会产生并抛出一种或几种类型的异常对象
+} catch(someException e) {
+    //如果捕获">
 <meta property="og:type" content="article">
-<meta property="og:title" content="集合">
-<meta property="og:url" content="http://yoursite.com/2016/10/03/集合/index.html">
+<meta property="og:title" content="异常处理">
+<meta property="og:url" content="http://yoursite.com/2016/10/06/异常处理/index.html">
 <meta property="og:site_name" content="李铕同学">
-<meta property="og:description" content="Collection是一个接口，定义了集合的相关的操作方法，有两个子接口，分别为List和Set，集合中存储的都是引用类型元素，只保存每个元素对象的引用。接口不能实例化，只能通过引用类型变量指向接口实现类的实例化对象。
-Collection常见的方法有如下几个：
-boolean add(E e) //将给定元素添加到集合中，成功返回true，否则为false  
-boolean contains(">
-<meta property="og:updated_time" content="2016-10-04T13:44:18.976Z">
+<meta property="og:description" content="Java异常中定义有Throwable类，由这个类派生出Exception和Error两个子类。其中Exception表示由于网络故障，文件损坏等情况导致的异常；而Error表示Java运行时环境出现的错误，比如JVM内存资源耗尽等。
+
+语法如下：
+
+try {
+    //该段代码可能会产生并抛出一种或几种类型的异常对象
+} catch(someException e) {
+    //如果捕获">
+<meta property="og:updated_time" content="2016-10-06T16:46:30.747Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="集合">
-<meta name="twitter:description" content="Collection是一个接口，定义了集合的相关的操作方法，有两个子接口，分别为List和Set，集合中存储的都是引用类型元素，只保存每个元素对象的引用。接口不能实例化，只能通过引用类型变量指向接口实现类的实例化对象。
-Collection常见的方法有如下几个：
-boolean add(E e) //将给定元素添加到集合中，成功返回true，否则为false  
-boolean contains(">
+<meta name="twitter:title" content="异常处理">
+<meta name="twitter:description" content="Java异常中定义有Throwable类，由这个类派生出Exception和Error两个子类。其中Exception表示由于网络故障，文件损坏等情况导致的异常；而Error表示Java运行时环境出现的错误，比如JVM内存资源耗尽等。
+
+语法如下：
+
+try {
+    //该段代码可能会产生并抛出一种或几种类型的异常对象
+} catch(someException e) {
+    //如果捕获">
 
 
 
@@ -123,9 +135,9 @@ boolean contains(">
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/10/03/集合/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/10/06/异常处理/"/>
 
-  <title> 集合 | 李铕同学 </title>
+  <title> 异常处理 | 李铕同学 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -255,7 +267,7 @@ boolean contains(">
             
             
               
-                集合
+                异常处理
               
             
           </h1>
@@ -267,8 +279,8 @@ boolean contains(">
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-03T23:36:52+08:00" content="2016-10-03">
-              2016-10-03
+            <time itemprop="dateCreated" datetime="2016-10-06T23:38:31+08:00" content="2016-10-06">
+              2016-10-06
             </time>
           </span>
 
@@ -314,67 +326,41 @@ boolean contains(">
       
 
       
-        <p><strong>Collection</strong>是一个接口，定义了集合的相关的操作方法，有两个子接口，分别为<strong>List</strong>和<strong>Set</strong>，集合中存储的都是引用类型元素，只保存每个元素对象的引用。<br><strong>接口不能实例化，只能通过引用类型变量指向接口实现类的实例化对象。</strong></p>
-<p><strong>Collection常见的方法有如下几个：</strong></p>
-<pre><code>boolean add(E e) //将给定元素添加到集合中，成功返回true，否则为false  
-boolean contains(Object o)// 如果此集合包含指定的元素，则返回 true，通常有必要重写equals()方法  
-int size() //返回此集合中的元素数   
-void clear() //移除此集合中的所有元素   
-boolean isEmpty() //如果此集合不包含元素，则返回 true  
-boolean addAll(Collection&lt;? extends E&gt; c) //将指定集合中的所有元素都添加到此集合中   
-boolean containsAll(Collection&lt;?&gt; c) //如果此集合包含指定集合中的所有元素，则返回 true
-</code></pre><p><strong>Collection定义了一个返回迭代器的方法：</strong></p>
-<pre><code>Iterator&lt;E&gt; iterator() // 返回在此集合的元素上进行迭代的迭代器
-</code></pre><p>其中Iterator是一个接口，遍历的时候要遵循“问、取、删（非必要）”原则，即先调<br><code>boolean hasNext() //判断集合是否还有元素可以遍历</code>，<br>一般在while()循环中调用，接着取元 素<code>E next() //返回迭代的下一个元素</code>，删除操作不是非必要的，如果要删除元素，必须要用迭代器删除，不能用集合删除，删除方法为<code>void remove()</code><br>在JDK5.0之后推出了增强for循环，方便的遍历集合或数组,，语法如下：</p>
-<pre><code>for(元素类型 e : 集合或数组) {
-    循环体
+        <p>Java异常中定义有Throwable类，由这个类派生出Exception和Error两个子类。其中Exception表示由于网络故障，文件损坏等情况导致的异常；而Error表示Java运行时环境出现的错误，比如JVM内存资源耗尽等。</p>
+<blockquote>
+<p>语法如下：</p>
+</blockquote>
+<pre><code>try {
+    //该段代码可能会产生并抛出一种或几种类型的异常对象
+} catch(someException e) {
+    //如果捕获到异常在这里做相应的处理，如果没有异常则忽略这段代码
 }
-</code></pre><ul>
-<li>List:可存储重复元素，常用实现类有ArrayList、LinkedList，分别用动态数组和链表实现List，前者更适合随机访问，而后者更适合插入删除</li>
-</ul>
-<p><strong>List除了继承Collection外还定义了一系列方法，常用的有：</strong></p>
-<pre><code>E get(int index) //返回列表中指定位置的元素
-E set(int index, E element) //用指定元素替换列表中指定位置的元素 
-boolean add(E e) //向列表的尾部添加指定的元素 
-E remove(int index) //移除列表中指定位置的元素 
-List&lt;E&gt; subList(int fromIndex, int toIndex) //返回列表中指定的 fromIndex（包括 ）和 toIndex（不包括）之间的部分，修改子集合会影响原集合
-&lt;T&gt; T[] toArray(T[] a) //返回包含此集合中所有元素的数组，数组的类型与指定数组的类型相同
-</code></pre><p>可以将数组转为List集合：</p>
-<pre><code>static &lt;T&gt; List&lt;T&gt; asList(T... a) //返回一个受指定数组支持的固定大小的列表，对集合的修改会影响数组，不能对集合进行增删元素
-</code></pre><p>List的排序：</p>
-<pre><code>static &lt;T extends Comparable&lt;? super T&gt;&gt; void sort(List&lt;T&gt; list) //根据元素的自然顺序 对指定列表按升序进行排序，需要实现Comparable接口并重写int comparaTo(T t)方法
-static &lt;T&gt; void sort(List&lt;T&gt; list, Comparator&lt;? super T&gt; c) //根据指定比较器产生的顺序对指定列表进行排序，需要实现Comparator接口并重写int compare(T o1,To2)
-</code></pre><ul>
-<li>Set:不能存储重复元素，常用实现类有HashSet、LinkedHashSet </li>
-</ul>
-<p><strong>队列和栈</strong></p>
+</code></pre><p>一个try语句块可以伴随一个或者多个catch语句，用于处理不同类型的异常。catch捕获的异常类型从上到下的顺序应该是从子类到父类。<br>finally{…}语句不单独存在，可以是 try-finally 或者是 try-catch-finally。<br>无论 try 语句中是否抛出异常，finally 中的代码都是要执行，即使 try 语句中已经有 return 了，除非在执行 finally 前执行了 System.exit 的方法。<br>通常在 finally 中进行资源的释放工作。  </p>
+<p><strong>throw关键字</strong><br>当程序发生异常而无法处理时，会抛出对应的异常对象。除此之外，我们也能自行抛出异常，让调用者来处理这个异常。例如 <code>throw new ArithmeticException();</code></p>
+<p><strong>throws关键字</strong><br>当方法可能会因为某些错误抛出异常时，使用 throws 声明方法将会抛出的异常，以便提醒调用者做出相应的处理。<br>在使用继承时，重写父类方法中有声明 throws 某些异常，子类<strong><em>可以</em></strong>不声明 throws 异常、可以仅throws 父类中声明的异常、也可以 throws 父类声明的异常的子类异常。 <strong><em>不可以</em></strong> throws 出额外异常、或者 throws 出父类声明的异常的父类异常。</p>
+<p>异常可以分为检查异常和非检查异常：</p>
 <ul>
-<li>Queue队列，遵循先进先出FIFO，只能从一段添加元素，从另一端取出元素，LinkedList实现该接口</li>
+<li>检查异常：编译器会强制执行处理或声明规则，不捕获这个异常则不能通过编译。</li>
+<li>非检查异常：在产生异常时，不一定非要采取任何操作，编译器不会检查是否已经解决了异常。</li>
 </ul>
-<p>主要方法如下：</p>
-<pre><code>boolean offer(E e); //讲一个对象添加到队尾，成功返回true
-E poll(); //从队首删除并返回一个对象
-E peek(); //返回队首元素（不删除）
-</code></pre><ul>
-<li>Deque是Queue的子接口，可以从队列两端入队和出队，LinkedList实现该接口，如果只在一端入队和出队，即是栈，栈遵循先进后出，入栈push，出栈pop</li>
-</ul>
-<p><strong>Map接口</strong></p>
+<p>RuntimeException类属于非检查异常，此类异常会在程序中频繁出现，所以不受编译器检查与处理或声明规则的限制。常见的RuntimeException有：</p>
 <ul>
-<li>Map接口定义的集合又成查找表，用于存储键值对。</li>
-<li>常用实现类为：HashMap和TreeMap</li>
+<li>IllegalArgumentException</li>
+<li>NullPointerException</li>
+<li>ArrayIndexOutOfBoundsException</li>
+<li>ClassCastException</li>
+<li>NumberFormatException</li>
 </ul>
-<p>常用方法：</p>
-<pre><code>V put(K key, V value) //将指定的值与此映射中的指定键存放到Map中，如果key已存在则会替换对应的value
-V get(Object key) //返回指定键所映射的值；如果此映射不包含该键的映射关系，则返回 null 
-boolean containsKey(Object key) //如果此映射包含指定键的映射关系，则返回 true 
-</code></pre><p><strong><em>HashMap</em></strong></p>
-<ul>
-<li>存放入HashMap的key必须重写hashCode和equals方法</li>
-</ul>
-<p><strong>遍历Map</strong></p>
-<pre><code>Set&lt;K&gt; keySet() //返回此映射中包含的键的 Set 视图,通过get(key)获取对应值
-Set&lt;Map.Entry&lt;K,V&gt;&gt; entrySet() //返回此映射中包含的映射关系的 Set 视图，通过Entry接口的 K getKey()和 V getValue()返回对应的键值
-</code></pre><p>有序的Map：LinkedHashMap</p>
+<p><strong>Exception常用API</strong></p>
+<pre><code>void printStackTrace() //用来跟踪异常事件发生时执行堆栈的内容
+String getMessage() //获得有关异常事件的信息
+Throwable getCause() //获取该异常出现的原因
+</code></pre><p><strong>自定义Exception</strong></p>
+<p>有时候为了更精准的捕获和处理异常已呈现更好的用户体验，需要自定义异常。<br>创建语法如下：</p>
+<pre><code>class exceptionName extends Exception {
+    ...
+}
+</code></pre><p>定义好异常类后使用Eclipse自动生成相应构造方法即可。</p>
 
       
     </div>
@@ -399,8 +385,6 @@ Set&lt;Map.Entry&lt;K,V&gt;&gt; entrySet() //返回此映射中包含的映射�
           
             <a href="/tags/Java/" rel="tag">#Java</a>
           
-            <a href="/tags/笔记/" rel="tag">#笔记</a>
-          
         </div>
       
 
@@ -408,17 +392,13 @@ Set&lt;Map.Entry&lt;K,V&gt;&gt; entrySet() //返回此映射中包含的映射�
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/10/01/终于完成了/" rel="next" title="终于完成了">
-                <i class="fa fa-chevron-left"></i> 终于完成了
+              <a href="/2016/10/04/文件操作/" rel="next" title="文件操作">
+                <i class="fa fa-chevron-left"></i> 文件操作
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/10/04/文件操作/" rel="prev" title="文件操作">
-                文件操作 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
