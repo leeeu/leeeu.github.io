@@ -1,0 +1,666 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Java," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="进程是操作系统中运行的一个任务，一个应用程序运行在一个进程中。一个进程中包含一个或者多个线程，当操作系统创建一个进程后，会自动申请一个名为主线程或首要线程的线程。同一个进程中的线程共享一块内存空间和一组系统资源，线程之间的切换负荷小。
+创建线程通常使用匿名内部类的方式创建线程，以减少代码复杂度。
+
+可以通过继承Thread类并重写run()方法来定义一个线程。
+
+注意：启动线程是调用线程的star">
+<meta property="og:type" content="article">
+<meta property="og:title" content="多线程">
+<meta property="og:url" content="http://yoursite.com/2016/10/07/多线程/index.html">
+<meta property="og:site_name" content="李铕同学">
+<meta property="og:description" content="进程是操作系统中运行的一个任务，一个应用程序运行在一个进程中。一个进程中包含一个或者多个线程，当操作系统创建一个进程后，会自动申请一个名为主线程或首要线程的线程。同一个进程中的线程共享一块内存空间和一组系统资源，线程之间的切换负荷小。
+创建线程通常使用匿名内部类的方式创建线程，以减少代码复杂度。
+
+可以通过继承Thread类并重写run()方法来定义一个线程。
+
+注意：启动线程是调用线程的star">
+<meta property="og:updated_time" content="2016-10-07T07:27:38.779Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="多线程">
+<meta name="twitter:description" content="进程是操作系统中运行的一个任务，一个应用程序运行在一个进程中。一个进程中包含一个或者多个线程，当操作系统创建一个进程后，会自动申请一个名为主线程或首要线程的线程。同一个进程中的线程共享一块内存空间和一组系统资源，线程之间的切换负荷小。
+创建线程通常使用匿名内部类的方式创建线程，以减少代码复杂度。
+
+可以通过继承Thread类并重写run()方法来定义一个线程。
+
+注意：启动线程是调用线程的star">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'leeeu'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/10/07/多线程/"/>
+
+  <title> 多线程 | 李铕同学 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">李铕同学</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">记录我的学习之路</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                多线程
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-07T12:59:09+08:00" content="2016-10-07">
+              2016-10-07
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/JavaSE/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaSE</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>进程是操作系统中运行的一个任务，一个应用程序运行在一个进程中。一个进程中包含一个或者多个线程，当操作系统创建一个进程后，会自动申请一个名为主线程或首要线程的线程。<br>同一个进程中的线程共享一块内存空间和一组系统资源，线程之间的切换负荷小。</p>
+<h1 id="创建线程"><a href="#创建线程" class="headerlink" title="创建线程"></a>创建线程</h1><p>通常使用匿名内部类的方式创建线程，以减少代码复杂度。</p>
+<ul>
+<li>可以通过继承Thread类并重写run()方法来定义一个线程。</li>
+</ul>
+<font color="red"><br>注意：启动线程是调用线程的start()方法而不是直接调用run()方法，start方法将线程纳入线程调度，当线程获得时间片后会自动开始执行run方法。<br></font>
+
+<ul>
+<li>实现Runnable接口并重写run()方法来定义线程体，然后在创建线程的时候将Runnable的实例传入并启动线程。  </li>
+</ul>
+<p>这样可以将线程和任务分开减少耦合度，同时Java是单继承，而可以实现多个接口，不影响继承其他父类。</p>
+<h1 id="线程操作API"><a href="#线程操作API" class="headerlink" title="线程操作API"></a>线程操作API</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">static</span> Thread <span class="title">currentThread</span><span class="params">()</span> <span class="comment">//返回对当前正在执行的线程对象的引用</span></span></div><div class="line"><span class="keyword">long</span> <span class="title">getId</span><span class="params">()</span> <span class="comment">//返回该线程的标识符 </span></div><div class="line">String <span class="title">getName</span><span class="params">()</span> <span class="comment">//返回该线程的名称 </span></div><div class="line"><span class="keyword">int</span> <span class="title">getPriority</span><span class="params">()</span> <span class="comment">//返回线程的优先级 </span></div><div class="line">Thread.State <span class="title">getState</span><span class="params">()</span> <span class="comment">//返回该线程的状态 </span></div><div class="line"><span class="keyword">boolean</span> <span class="title">isAlive</span><span class="params">()</span> <span class="comment">//测试线程是否处于活动状态 </span></div><div class="line"><span class="keyword">boolean</span> <span class="title">isDaemon</span><span class="params">()</span> <span class="comment">//测试该线程是否为守护线程 </span></div><div class="line"><span class="keyword">boolean</span> <span class="title">isInterrupted</span><span class="params">()</span> <span class="comment">//测试线程是否已经中断</span></div></pre></td></tr></table></figure>
+<h2 id="线程优先级"><a href="#线程优先级" class="headerlink" title="线程优先级"></a>线程优先级</h2><p>线程优先级划分为1-10，1最小，10最大，默认为5.  </p>
+<blockquote>
+<p>设置优先级方法如下：</p>
+</blockquote>
+<pre><code>void setPriority(int newPriority) //更改线程的优先级
+</code></pre><blockquote>
+<p>常用常量：</p>
+</blockquote>
+<pre><code>static int MAX_PRIORITY //线程可以具有的最高优先级 
+static int MIN_PRIORITY //线程可以具有的最低优先级 
+static int NORM_PRIORITY //分配给线程的默认优先级 
+</code></pre><h2 id="守护线程"><a href="#守护线程" class="headerlink" title="守护线程"></a>守护线程</h2><p>当进程中的前台线程都结束了，守护线程会强制终止。创建出来的线程默认是前台线程，设置守护线程方法如下：</p>
+<pre><code>void setDaemon(boolean on) //将该线程标记为守护线程或用户线程 
+</code></pre><hr>
+<pre><code>static void sleep(long millis) //在指定的毫秒数内让当前正在执行的线程休眠，释放CPU不释放锁
+static void yield() //暂停当前正在执行的线程对象，并执行其他线程 
+void join() //用于等待当前线程终止
+</code></pre><h1 id="线程同步"><a href="#线程同步" class="headerlink" title="线程同步"></a>线程同步</h1><p>多个线程并发读写同一个临界资源会发生“线程并发安全问题”。<br>常见临界资源：</p>
+<ul>
+<li>多线程共享实例变量</li>
+<li>多线程共享静态公共变量</li>
+</ul>
+<p><strong>synchronized</strong>  关键字是Java中的同步锁<br>同步代码块：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">synchronized</span>(锁对象) &#123;</div><div class="line">	<span class="comment">//代码块</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>若方法所有代码都需要同步，可以直接给方法加锁。应尽量减少锁的范围来提高并发效率。<br>通常使用this来作为锁对象。<br>静态方法与非静态方法同时声明synchronized，他们是非互斥关系的。应为静态方法锁的是类对象而非静态方法锁的是当前方法所属对象。</p>
+<h1 id="线程池"><a href="#线程池" class="headerlink" title="线程池"></a>线程池</h1><p>ExecutorService是Java提供用于管理线程池的类。<br>线程池的两个主要作用：</p>
+<ul>
+<li>控制线程数量</li>
+<li>重用线程</li>
+</ul>
+<p><strong>Executors</strong> 类提供了用于此包中所提供的执行程序服务的工厂方法</p>
+<pre><code>static ExecutorService newCachedThreadPool() //创建一个可根据需要创建新线程的线程池，但是在以前构造的线程可用时将重用它们 
+static ExecutorService newFixedThreadPool(int nThreads) //创建一个可重用固定线程数的线程池，以共享的无界队列方式来运行这些线程 
+static ScheduledExecutorService newScheduledThreadPool(int corePoolSize) //创建一个线程池，它可安排在给定延迟后运行命令或者定期地执行 
+static ExecutorService newSingleThreadExecutor() //创建一个使用单个 worker 线程的 Executor，以无界队列方式来运行该线程 
+</code></pre><h1 id="BlockingQueue接口"><a href="#BlockingQueue接口" class="headerlink" title="BlockingQueue接口"></a>BlockingQueue接口</h1><p>双缓冲队列，保证并发安全的同时提高队列的存取效率，方法同Queue。<br>常用实现类：</p>
+<ul>
+<li>ArrayBlockingQueue：一个由数组支持的有界阻塞队列。此队列按 FIFO（先进先出）原则对元素进行排序。通过构造函数int参数规定大小</li>
+<li>LinkedBlockingQueue：此队列按 FIFO（先进先出）排序元素。若构造函数带有int参数，则大小为该参数大小，不带参数则大小为Integer.MAX_VALUE</li>
+<li>PriorityBlockingQueue：类似于LinkedBlockingQueue但是排序不是FIFO，而是对象的自然排序或者构造函数的Comparator决定</li>
+<li>SynchronousQueue：一种阻塞队列，其中每个插入操作必须等待另一个线程的对应移除操作 ，反之亦然。即放和取必须是交替完成的</li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag">#Java</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/10/06/异常处理/" rel="next" title="异常处理">
+                <i class="fa fa-chevron-left"></i> 异常处理
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/images/avatar.jpg"
+               alt="李铕" />
+          <p class="site-author-name" itemprop="name">李铕</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#创建线程"><span class="nav-number">1.</span> <span class="nav-text">创建线程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#线程操作API"><span class="nav-number">2.</span> <span class="nav-text">线程操作API</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#线程优先级"><span class="nav-number">2.1.</span> <span class="nav-text">线程优先级</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#守护线程"><span class="nav-number">2.2.</span> <span class="nav-text">守护线程</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#线程同步"><span class="nav-number">3.</span> <span class="nav-text">线程同步</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#线程池"><span class="nav-number">4.</span> <span class="nav-text">线程池</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#BlockingQueue接口"><span class="nav-number">5.</span> <span class="nav-text">BlockingQueue接口</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">李铕</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
