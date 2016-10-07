@@ -88,10 +88,7 @@
 
 语法如下：
 
-try {
-    //该段代码可能会产生并抛出一种或几种类型的异常对象
-} catch(someException e) {
-    //如果捕获">
+12345try &amp;#123;	//该段代码可能会产生并抛出一种或几种类型的异常对象&amp;#125; catch(someException e) &amp;#">
 <meta property="og:type" content="article">
 <meta property="og:title" content="异常处理">
 <meta property="og:url" content="http://yoursite.com/2016/10/06/异常处理/index.html">
@@ -100,21 +97,15 @@ try {
 
 语法如下：
 
-try {
-    //该段代码可能会产生并抛出一种或几种类型的异常对象
-} catch(someException e) {
-    //如果捕获">
-<meta property="og:updated_time" content="2016-10-06T16:46:30.747Z">
+12345try &amp;#123;	//该段代码可能会产生并抛出一种或几种类型的异常对象&amp;#125; catch(someException e) &amp;#">
+<meta property="og:updated_time" content="2016-10-06T16:58:12.792Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="异常处理">
 <meta name="twitter:description" content="Java异常中定义有Throwable类，由这个类派生出Exception和Error两个子类。其中Exception表示由于网络故障，文件损坏等情况导致的异常；而Error表示Java运行时环境出现的错误，比如JVM内存资源耗尽等。
 
 语法如下：
 
-try {
-    //该段代码可能会产生并抛出一种或几种类型的异常对象
-} catch(someException e) {
-    //如果捕获">
+12345try &amp;#123;	//该段代码可能会产生并抛出一种或几种类型的异常对象&amp;#125; catch(someException e) &amp;#">
 
 
 
@@ -330,12 +321,8 @@ try {
 <blockquote>
 <p>语法如下：</p>
 </blockquote>
-<pre><code>try {
-    //该段代码可能会产生并抛出一种或几种类型的异常对象
-} catch(someException e) {
-    //如果捕获到异常在这里做相应的处理，如果没有异常则忽略这段代码
-}
-</code></pre><p>一个try语句块可以伴随一个或者多个catch语句，用于处理不同类型的异常。catch捕获的异常类型从上到下的顺序应该是从子类到父类。<br>finally{…}语句不单独存在，可以是 try-finally 或者是 try-catch-finally。<br>无论 try 语句中是否抛出异常，finally 中的代码都是要执行，即使 try 语句中已经有 return 了，除非在执行 finally 前执行了 System.exit 的方法。<br>通常在 finally 中进行资源的释放工作。  </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">try</span> &#123;</div><div class="line">	<span class="comment">//该段代码可能会产生并抛出一种或几种类型的异常对象</span></div><div class="line">&#125; <span class="keyword">catch</span>(someException e) &#123;</div><div class="line">	<span class="comment">//如果捕获到异常在这里做相应的处理，如果没有异常则忽略这段代码</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>一个try语句块可以伴随一个或者多个catch语句，用于处理不同类型的异常。catch捕获的异常类型从上到下的顺序应该是从子类到父类。<br>finally{…}语句不单独存在，可以是 try-finally 或者是 try-catch-finally。<br>无论 try 语句中是否抛出异常，finally 中的代码都是要执行，即使 try 语句中已经有 return 了，除非在执行 finally 前执行了 System.exit 的方法。<br>通常在 finally 中进行资源的释放工作。  </p>
 <p><strong>throw关键字</strong><br>当程序发生异常而无法处理时，会抛出对应的异常对象。除此之外，我们也能自行抛出异常，让调用者来处理这个异常。例如 <code>throw new ArithmeticException();</code></p>
 <p><strong>throws关键字</strong><br>当方法可能会因为某些错误抛出异常时，使用 throws 声明方法将会抛出的异常，以便提醒调用者做出相应的处理。<br>在使用继承时，重写父类方法中有声明 throws 某些异常，子类<strong><em>可以</em></strong>不声明 throws 异常、可以仅throws 父类中声明的异常、也可以 throws 父类声明的异常的子类异常。 <strong><em>不可以</em></strong> throws 出额外异常、或者 throws 出父类声明的异常的父类异常。</p>
 <p>异常可以分为检查异常和非检查异常：</p>
@@ -352,15 +339,11 @@ try {
 <li>NumberFormatException</li>
 </ul>
 <p><strong>Exception常用API</strong></p>
-<pre><code>void printStackTrace() //用来跟踪异常事件发生时执行堆栈的内容
-String getMessage() //获得有关异常事件的信息
-Throwable getCause() //获取该异常出现的原因
-</code></pre><p><strong>自定义Exception</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">printStackTrace</span><span class="params">()</span> <span class="comment">//用来跟踪异常事件发生时执行堆栈的内容</span></span></div><div class="line">String <span class="title">getMessage</span><span class="params">()</span> <span class="comment">//获得有关异常事件的信息</span></div><div class="line">Throwable <span class="title">getCause</span><span class="params">()</span> <span class="comment">//获取该异常出现的原因</span></div></pre></td></tr></table></figure>
+<p><strong>自定义Exception</strong></p>
 <p>有时候为了更精准的捕获和处理异常已呈现更好的用户体验，需要自定义异常。<br>创建语法如下：</p>
-<pre><code>class exceptionName extends Exception {
-    ...
-}
-</code></pre><p>定义好异常类后使用Eclipse自动生成相应构造方法即可。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">exceptionName</span> <span class="keyword">extends</span> <span class="title">Exception</span> </span>&#123;</div><div class="line">	...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>定义好异常类后使用Eclipse自动生成相应构造方法即可。</p>
 
       
     </div>
