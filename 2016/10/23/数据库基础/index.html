@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Java,笔记," />
+  <meta name="keywords" content="sql," />
 
 
 
@@ -84,25 +84,25 @@
 
 
 
-<meta name="description" content="Collection是一个接口，定义了集合的相关的操作方法，有两个子接口，分别为List和Set，集合中存储的都是引用类型元素，只保存每个元素对象的引用。接口不能实例化，只能通过引用类型变量指向接口实现类的实例化对象。
-Collection常见的方法有如下几个：
-boolean add(E e) //将给定元素添加到集合中，成功返回true，否则为false  
-boolean contains(">
+<meta name="description" content="数据库(Database)，简称DB，是按照数据结构来组织、存储和管理数据的仓库。数据库管理系统(Database Management System)，简称DBMS，是管理数据库的软件。一个关系数据库由多个数据表组成，数据表是关系数据库的基本存储结构。表是二维的，表的行称为记录，表的列称为字段。  
+SQLSQL(Structured Query Language)：结构化查询语言。  
+
+SQ">
 <meta property="og:type" content="article">
-<meta property="og:title" content="集合">
-<meta property="og:url" content="http://yoursite.com/2016/10/03/集合/index.html">
+<meta property="og:title" content="数据库基础">
+<meta property="og:url" content="http://yoursite.com/2016/10/23/数据库基础/index.html">
 <meta property="og:site_name" content="李铕同学">
-<meta property="og:description" content="Collection是一个接口，定义了集合的相关的操作方法，有两个子接口，分别为List和Set，集合中存储的都是引用类型元素，只保存每个元素对象的引用。接口不能实例化，只能通过引用类型变量指向接口实现类的实例化对象。
-Collection常见的方法有如下几个：
-boolean add(E e) //将给定元素添加到集合中，成功返回true，否则为false  
-boolean contains(">
-<meta property="og:updated_time" content="2016-10-04T13:44:18.976Z">
+<meta property="og:description" content="数据库(Database)，简称DB，是按照数据结构来组织、存储和管理数据的仓库。数据库管理系统(Database Management System)，简称DBMS，是管理数据库的软件。一个关系数据库由多个数据表组成，数据表是关系数据库的基本存储结构。表是二维的，表的行称为记录，表的列称为字段。  
+SQLSQL(Structured Query Language)：结构化查询语言。  
+
+SQ">
+<meta property="og:updated_time" content="2016-10-29T14:25:03.508Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="集合">
-<meta name="twitter:description" content="Collection是一个接口，定义了集合的相关的操作方法，有两个子接口，分别为List和Set，集合中存储的都是引用类型元素，只保存每个元素对象的引用。接口不能实例化，只能通过引用类型变量指向接口实现类的实例化对象。
-Collection常见的方法有如下几个：
-boolean add(E e) //将给定元素添加到集合中，成功返回true，否则为false  
-boolean contains(">
+<meta name="twitter:title" content="数据库基础">
+<meta name="twitter:description" content="数据库(Database)，简称DB，是按照数据结构来组织、存储和管理数据的仓库。数据库管理系统(Database Management System)，简称DBMS，是管理数据库的软件。一个关系数据库由多个数据表组成，数据表是关系数据库的基本存储结构。表是二维的，表的行称为记录，表的列称为字段。  
+SQLSQL(Structured Query Language)：结构化查询语言。  
+
+SQ">
 
 
 
@@ -123,9 +123,9 @@ boolean contains(">
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/10/03/集合/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/10/23/数据库基础/"/>
 
-  <title> 集合 | 李铕同学 </title>
+  <title> 数据库基础 | 李铕同学 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -255,7 +255,7 @@ boolean contains(">
             
             
               
-                集合
+                数据库基础
               
             
           </h1>
@@ -267,8 +267,8 @@ boolean contains(">
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-03T23:36:52+08:00" content="2016-10-03">
-              2016-10-03
+            <time itemprop="dateCreated" datetime="2016-10-23T16:36:54+08:00" content="2016-10-23">
+              2016-10-23
             </time>
           </span>
 
@@ -281,8 +281,8 @@ boolean contains(">
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/JavaSE/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaSE</span>
+                  <a href="/categories/Oracle/" itemprop="url" rel="index">
+                    <span itemprop="name">Oracle</span>
                   </a>
                 </span>
 
@@ -314,67 +314,50 @@ boolean contains(">
       
 
       
-        <p><strong>Collection</strong>是一个接口，定义了集合的相关的操作方法，有两个子接口，分别为<strong>List</strong>和<strong>Set</strong>，集合中存储的都是引用类型元素，只保存每个元素对象的引用。<br><strong>接口不能实例化，只能通过引用类型变量指向接口实现类的实例化对象。</strong></p>
-<p><strong>Collection常见的方法有如下几个：</strong></p>
-<pre><code>boolean add(E e) //将给定元素添加到集合中，成功返回true，否则为false  
-boolean contains(Object o)// 如果此集合包含指定的元素，则返回 true，通常有必要重写equals()方法  
-int size() //返回此集合中的元素数   
-void clear() //移除此集合中的所有元素   
-boolean isEmpty() //如果此集合不包含元素，则返回 true  
-boolean addAll(Collection&lt;? extends E&gt; c) //将指定集合中的所有元素都添加到此集合中   
-boolean containsAll(Collection&lt;?&gt; c) //如果此集合包含指定集合中的所有元素，则返回 true
-</code></pre><p><strong>Collection定义了一个返回迭代器的方法：</strong></p>
-<pre><code>Iterator&lt;E&gt; iterator() // 返回在此集合的元素上进行迭代的迭代器
-</code></pre><p>其中Iterator是一个接口，遍历的时候要遵循“问、取、删（非必要）”原则，即先调<br><code>boolean hasNext() //判断集合是否还有元素可以遍历</code>，<br>一般在while()循环中调用，接着取元 素<code>E next() //返回迭代的下一个元素</code>，删除操作不是非必要的，如果要删除元素，必须要用迭代器删除，不能用集合删除，删除方法为<code>void remove()</code><br>在JDK5.0之后推出了增强for循环，方便的遍历集合或数组,，语法如下：</p>
-<pre><code>for(元素类型 e : 集合或数组) {
-    循环体
-}
-</code></pre><ul>
-<li>List:可存储重复元素，常用实现类有ArrayList、LinkedList，分别用动态数组和链表实现List，前者更适合随机访问，而后者更适合插入删除</li>
+        <p>数据库(Database)，简称DB，是按照数据结构来组织、存储和管理数据的仓库。<br>数据库管理系统(Database Management System)，简称DBMS，是管理数据库的软件。<br>一个关系数据库由多个数据表组成，数据表是关系数据库的基本存储结构。表是二维的，表的行称为记录，表的列称为字段。  </p>
+<h1 id="SQL"><a href="#SQL" class="headerlink" title="SQL"></a>SQL</h1><p>SQL(Structured Query Language)：结构化查询语言。  </p>
+<blockquote>
+<p>SQL可以分为：</p>
+</blockquote>
+<h2 id="数据定义语言-DDL"><a href="#数据定义语言-DDL" class="headerlink" title="数据定义语言(DDL)"></a>数据定义语言(DDL)</h2><p>用于建立、修改、删除数据库对象，包括：  </p>
+<ol>
+<li>CREATE：创建表或其他对象结构  </li>
+<li>ALTER：修改表或其他对象结构  </li>
+<li>DROP：删除表或其他对象结构  </li>
+<li>TRUNCATE：删除表数据，不删除表结构  </li>
+</ol>
+<h2 id="数据操纵语言-DML"><a href="#数据操纵语言-DML" class="headerlink" title="数据操纵语言(DML)"></a>数据操纵语言(DML)</h2><p>用于该边数据表中的数据，和事务相关，执行完后需要经过事务控制语言提交后才真正的将改变应用到数据库中。包括：  </p>
+<ol>
+<li>INSERT：向数据表中插入数据  </li>
+<li>UPDATE：更新数据表中已存在的数据  </li>
+<li>DELETE：删除数据表中的数据  </li>
+</ol>
+<h2 id="事务控制语言-TCL"><a href="#事务控制语言-TCL" class="headerlink" title="事务控制语言(TCL)"></a>事务控制语言(TCL)</h2><p>用来维护数据一致性的语句，包括：  </p>
+<ol>
+<li>COMMIT：提交，确认数据改变  </li>
+<li>ROLLBACK：回滚，取消已经进行的数据改变  </li>
+<li>SAVEPOINT：保存点，使当前事务退回到指定的保存点，便于取消部分改变</li>
+</ol>
+<h2 id="数据查询语言-DQL"><a href="#数据查询语言-DQL" class="headerlink" title="数据查询语言(DQL)"></a>数据查询语言(DQL)</h2><p>用来查询所需的数据，SELECT语句</p>
+<h2 id="数据控制语言-DCL"><a href="#数据控制语言-DCL" class="headerlink" title="数据控制语言(DCL)"></a>数据控制语言(DCL)</h2><p>用于执行权限的授予与回收操作，包括：  </p>
+<ol>
+<li>GRANT：授予，用于给用户或角色授予权限  </li>
+<li>REVOKE：用于回收用户或角色已有的权限  </li>
+<li>CREATE USER：创建用户  </li>
+</ol>
+<h1 id="Oracle数据类型"><a href="#Oracle数据类型" class="headerlink" title="Oracle数据类型"></a>Oracle数据类型</h1><ul>
+<li>NUMBER：表示数字类型，常被定义成Number(P，S)，P表示数字总位数，S表示小数点后位数。</li>
+<li>CHAR：表示固定长度字符类型，CHAR(N)中的N表示占用字节数，最大长度2000字节。</li>
+<li>VARCHAR2：表示变长字符类型，VARCHAR(N)中的N表示最多可以占用字节数，最大长度4000字节。</li>
+<li>DATE：用于定义日期时间的数据，长度为7个字节，默认格式：DD-MON-RR。</li>
 </ul>
-<p><strong>List除了继承Collection外还定义了一系列方法，常用的有：</strong></p>
-<pre><code>E get(int index) //返回列表中指定位置的元素
-E set(int index, E element) //用指定元素替换列表中指定位置的元素 
-boolean add(E e) //向列表的尾部添加指定的元素 
-E remove(int index) //移除列表中指定位置的元素 
-List&lt;E&gt; subList(int fromIndex, int toIndex) //返回列表中指定的 fromIndex（包括 ）和 toIndex（不包括）之间的部分，修改子集合会影响原集合
-&lt;T&gt; T[] toArray(T[] a) //返回包含此集合中所有元素的数组，数组的类型与指定数组的类型相同
-</code></pre><p>可以将数组转为List集合：</p>
-<pre><code>static &lt;T&gt; List&lt;T&gt; asList(T... a) //返回一个受指定数组支持的固定大小的列表，对集合的修改会影响数组，不能对集合进行增删元素
-</code></pre><p>List的排序：</p>
-<pre><code>static &lt;T extends Comparable&lt;? super T&gt;&gt; void sort(List&lt;T&gt; list) //根据元素的自然顺序 对指定列表按升序进行排序，需要实现Comparable接口并重写int comparaTo(T t)方法
-static &lt;T&gt; void sort(List&lt;T&gt; list, Comparator&lt;? super T&gt; c) //根据指定比较器产生的顺序对指定列表进行排序，需要实现Comparator接口并重写int compare(T o1,To2)
-</code></pre><ul>
-<li>Set:不能存储重复元素，常用实现类有HashSet、LinkedHashSet </li>
-</ul>
-<p><strong>队列和栈</strong></p>
-<ul>
-<li>Queue队列，遵循先进先出FIFO，只能从一段添加元素，从另一端取出元素，LinkedList实现该接口</li>
-</ul>
-<p>主要方法如下：</p>
-<pre><code>boolean offer(E e); //讲一个对象添加到队尾，成功返回true
-E poll(); //从队首删除并返回一个对象
-E peek(); //返回队首元素（不删除）
-</code></pre><ul>
-<li>Deque是Queue的子接口，可以从队列两端入队和出队，LinkedList实现该接口，如果只在一端入队和出队，即是栈，栈遵循先进后出，入栈push，出栈pop</li>
-</ul>
-<p><strong>Map接口</strong></p>
-<ul>
-<li>Map接口定义的集合又成查找表，用于存储键值对。</li>
-<li>常用实现类为：HashMap和TreeMap</li>
-</ul>
-<p>常用方法：</p>
-<pre><code>V put(K key, V value) //将指定的值与此映射中的指定键存放到Map中，如果key已存在则会替换对应的value
-V get(Object key) //返回指定键所映射的值；如果此映射不包含该键的映射关系，则返回 null 
-boolean containsKey(Object key) //如果此映射包含指定键的映射关系，则返回 true 
-</code></pre><p><strong><em>HashMap</em></strong></p>
-<ul>
-<li>存放入HashMap的key必须重写hashCode和equals方法</li>
-</ul>
-<p><strong>遍历Map</strong></p>
-<pre><code>Set&lt;K&gt; keySet() //返回此映射中包含的键的 Set 视图,通过get(key)获取对应值
-Set&lt;Map.Entry&lt;K,V&gt;&gt; entrySet() //返回此映射中包含的映射关系的 Set 视图，通过Entry接口的 K getKey()和 V getValue()返回对应的键值
-</code></pre><p>有序的Map：LinkedHashMap</p>
+<h1 id="创建表"><a href="#创建表" class="headerlink" title="创建表"></a>创建表</h1><p>CREATE语句：<br>    CREATE TABLE table_name(<br>        column_name datatype,…<br>    );</p>
+<p>DESC语句：查看表结构<br>    DESC table_name;  </p>
+<p>DEFAULT语句：可以通过DEFAULT给表中某列指定默认值<br>NOT NULL：是一种非空约束，确保字段值不为空。  </p>
+<h1 id="修改表"><a href="#修改表" class="headerlink" title="修改表"></a>修改表</h1><p>修改表名：<code>RENAME old_table_name TO new_name</code><br>增加列：<code>ALTER TABLE table_name ADD(column_name datatype,...);</code><br>删除列：<code>ALTER TABLE table_name DROP(column_name);</code><br>修改列：<code>ALTER TABLE table_name MODIFY(column_name datatype,...);</code>修改仅对以后插入的数据有效，若把长度改小有可能不成功。  </p>
+<h1 id="DML语句"><a href="#DML语句" class="headerlink" title="DML语句"></a>DML语句</h1><p>INSERT语句：给数据表增加记录，DML语句需要执行commit之后才算真正确认了此操作，如果插入列有日期字段，可以使用TO_DATE函数自定义转换为日期类型的数据<br>    INSERT INTO table_name(column_name,…)<br>    VALUES(value,…)</p>
+<p>UPDATE语句：<br>    UPDATE table_name<br>    SET column_name = value,…<br>    [WHERE condition];<br>如果没有<code>WHERE</code>子句，则全表数据会被更新。</p>
+<p>DELETE语句：<br>    DELETE table_name [WHERE condition];<br>如果没有WHERE子句，则全表数据会被删除。（如果想删除全表数据，使用DDL语句中的TRUNCATE语句效率更高，但是一旦执行无法撤销）</p>
 
       
     </div>
@@ -397,9 +380,7 @@ Set&lt;Map.Entry&lt;K,V&gt;&gt; entrySet() //返回此映射中包含的映射�
       
         <div class="post-tags">
           
-            <a href="/tags/Java/" rel="tag">#Java</a>
-          
-            <a href="/tags/笔记/" rel="tag">#笔记</a>
+            <a href="/tags/sql/" rel="tag">#sql</a>
           
         </div>
       
@@ -408,17 +389,13 @@ Set&lt;Map.Entry&lt;K,V&gt;&gt; entrySet() //返回此映射中包含的映射�
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/10/01/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
+              <a href="/2016/10/22/XML/" rel="next" title="XML">
+                <i class="fa fa-chevron-left"></i> XML
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/10/04/文件操作/" rel="prev" title="文件操作">
-                文件操作 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -532,7 +509,7 @@ Set&lt;Map.Entry&lt;K,V&gt;&gt; entrySet() //返回此映射中包含的映射�
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#SQL"><span class="nav-number">1.</span> <span class="nav-text">SQL</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据定义语言-DDL"><span class="nav-number">1.1.</span> <span class="nav-text">数据定义语言(DDL)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据操纵语言-DML"><span class="nav-number">1.2.</span> <span class="nav-text">数据操纵语言(DML)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事务控制语言-TCL"><span class="nav-number">1.3.</span> <span class="nav-text">事务控制语言(TCL)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据查询语言-DQL"><span class="nav-number">1.4.</span> <span class="nav-text">数据查询语言(DQL)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据控制语言-DCL"><span class="nav-number">1.5.</span> <span class="nav-text">数据控制语言(DCL)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Oracle数据类型"><span class="nav-number">2.</span> <span class="nav-text">Oracle数据类型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#创建表"><span class="nav-number">3.</span> <span class="nav-text">创建表</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#修改表"><span class="nav-number">4.</span> <span class="nav-text">修改表</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DML语句"><span class="nav-number">5.</span> <span class="nav-text">DML语句</span></a></li></ol></div>
             
           </div>
         </section>
