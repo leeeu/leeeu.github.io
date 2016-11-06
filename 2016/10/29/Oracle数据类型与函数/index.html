@@ -84,25 +84,28 @@
 
 
 
-<meta name="description" content="数据库(Database)，简称DB，是按照数据结构来组织、存储和管理数据的仓库。数据库管理系统(Database Management System)，简称DBMS，是管理数据库的软件。一个关系数据库由多个数据表组成，数据表是关系数据库的基本存储结构。表是二维的，表的行称为记录，表的列称为字段。  
-SQLSQL(Structured Query Language)：结构化查询语言。  
-
-SQ">
+<meta name="description" content="字符串字符串类型
+CHAR存放定长字符，不满补空格，默认单位是字节，可以指定为字符，如CHAR（10 CHAR）表示20字节
+VARCHAR2存放变长字符，存多少占用多少，默认单位是字节，可以指定单位为字符
+LONG：VARCHAR2加长版，存储变长字符串，最多2GB字符串数据。但是有诸多限制：每个表只能有一个LONG类的列，不能作为主键，不能建立索引，不能出现在查询条件中等。
+CLOB：存储定长">
 <meta property="og:type" content="article">
-<meta property="og:title" content="数据库基础">
-<meta property="og:url" content="http://yoursite.com/2016/10/23/数据库基础/index.html">
+<meta property="og:title" content="Oracle数据类型与函数">
+<meta property="og:url" content="http://yoursite.com/2016/10/29/Oracle数据类型与函数/index.html">
 <meta property="og:site_name" content="李铕同学">
-<meta property="og:description" content="数据库(Database)，简称DB，是按照数据结构来组织、存储和管理数据的仓库。数据库管理系统(Database Management System)，简称DBMS，是管理数据库的软件。一个关系数据库由多个数据表组成，数据表是关系数据库的基本存储结构。表是二维的，表的行称为记录，表的列称为字段。  
-SQLSQL(Structured Query Language)：结构化查询语言。  
-
-SQ">
-<meta property="og:updated_time" content="2016-10-29T14:25:03.508Z">
+<meta property="og:description" content="字符串字符串类型
+CHAR存放定长字符，不满补空格，默认单位是字节，可以指定为字符，如CHAR（10 CHAR）表示20字节
+VARCHAR2存放变长字符，存多少占用多少，默认单位是字节，可以指定单位为字符
+LONG：VARCHAR2加长版，存储变长字符串，最多2GB字符串数据。但是有诸多限制：每个表只能有一个LONG类的列，不能作为主键，不能建立索引，不能出现在查询条件中等。
+CLOB：存储定长">
+<meta property="og:updated_time" content="2016-11-06T11:47:29.432Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="数据库基础">
-<meta name="twitter:description" content="数据库(Database)，简称DB，是按照数据结构来组织、存储和管理数据的仓库。数据库管理系统(Database Management System)，简称DBMS，是管理数据库的软件。一个关系数据库由多个数据表组成，数据表是关系数据库的基本存储结构。表是二维的，表的行称为记录，表的列称为字段。  
-SQLSQL(Structured Query Language)：结构化查询语言。  
-
-SQ">
+<meta name="twitter:title" content="Oracle数据类型与函数">
+<meta name="twitter:description" content="字符串字符串类型
+CHAR存放定长字符，不满补空格，默认单位是字节，可以指定为字符，如CHAR（10 CHAR）表示20字节
+VARCHAR2存放变长字符，存多少占用多少，默认单位是字节，可以指定单位为字符
+LONG：VARCHAR2加长版，存储变长字符串，最多2GB字符串数据。但是有诸多限制：每个表只能有一个LONG类的列，不能作为主键，不能建立索引，不能出现在查询条件中等。
+CLOB：存储定长">
 
 
 
@@ -123,9 +126,9 @@ SQ">
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/10/23/数据库基础/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/10/29/Oracle数据类型与函数/"/>
 
-  <title> 数据库基础 | 李铕同学 </title>
+  <title> Oracle数据类型与函数 | 李铕同学 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -255,7 +258,7 @@ SQ">
             
             
               
-                数据库基础
+                Oracle数据类型与函数
               
             
           </h1>
@@ -267,8 +270,8 @@ SQ">
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-23T16:36:54+08:00" content="2016-10-23">
-              2016-10-23
+            <time itemprop="dateCreated" datetime="2016-10-29T22:55:59+08:00" content="2016-10-29">
+              2016-10-29
             </time>
           </span>
 
@@ -314,50 +317,59 @@ SQ">
       
 
       
-        <p>数据库(Database)，简称DB，是按照数据结构来组织、存储和管理数据的仓库。<br>数据库管理系统(Database Management System)，简称DBMS，是管理数据库的软件。<br>一个关系数据库由多个数据表组成，数据表是关系数据库的基本存储结构。表是二维的，表的行称为记录，表的列称为字段。  </p>
-<h1 id="SQL"><a href="#SQL" class="headerlink" title="SQL"></a>SQL</h1><p>SQL(Structured Query Language)：结构化查询语言。  </p>
-<blockquote>
-<p>SQL可以分为：</p>
-</blockquote>
-<h2 id="数据定义语言-DDL"><a href="#数据定义语言-DDL" class="headerlink" title="数据定义语言(DDL)"></a>数据定义语言(DDL)</h2><p>用于建立、修改、删除数据库对象，包括：  </p>
-<ol>
-<li>CREATE：创建表或其他对象结构  </li>
-<li>ALTER：修改表或其他对象结构  </li>
-<li>DROP：删除表或其他对象结构  </li>
-<li>TRUNCATE：删除表数据，不删除表结构  </li>
-</ol>
-<h2 id="数据操纵语言-DML"><a href="#数据操纵语言-DML" class="headerlink" title="数据操纵语言(DML)"></a>数据操纵语言(DML)</h2><p>用于该边数据表中的数据，和事务相关，执行完后需要经过事务控制语言提交后才真正的将改变应用到数据库中。包括：  </p>
-<ol>
-<li>INSERT：向数据表中插入数据  </li>
-<li>UPDATE：更新数据表中已存在的数据  </li>
-<li>DELETE：删除数据表中的数据  </li>
-</ol>
-<h2 id="事务控制语言-TCL"><a href="#事务控制语言-TCL" class="headerlink" title="事务控制语言(TCL)"></a>事务控制语言(TCL)</h2><p>用来维护数据一致性的语句，包括：  </p>
-<ol>
-<li>COMMIT：提交，确认数据改变  </li>
-<li>ROLLBACK：回滚，取消已经进行的数据改变  </li>
-<li>SAVEPOINT：保存点，使当前事务退回到指定的保存点，便于取消部分改变</li>
-</ol>
-<h2 id="数据查询语言-DQL"><a href="#数据查询语言-DQL" class="headerlink" title="数据查询语言(DQL)"></a>数据查询语言(DQL)</h2><p>用来查询所需的数据，SELECT语句</p>
-<h2 id="数据控制语言-DCL"><a href="#数据控制语言-DCL" class="headerlink" title="数据控制语言(DCL)"></a>数据控制语言(DCL)</h2><p>用于执行权限的授予与回收操作，包括：  </p>
-<ol>
-<li>GRANT：授予，用于给用户或角色授予权限  </li>
-<li>REVOKE：用于回收用户或角色已有的权限  </li>
-<li>CREATE USER：创建用户  </li>
-</ol>
-<h1 id="Oracle数据类型"><a href="#Oracle数据类型" class="headerlink" title="Oracle数据类型"></a>Oracle数据类型</h1><ul>
-<li>NUMBER：表示数字类型，常被定义成Number(P，S)，P表示数字总位数，S表示小数点后位数。</li>
-<li>CHAR：表示固定长度字符类型，CHAR(N)中的N表示占用字节数，最大长度2000字节。</li>
-<li>VARCHAR2：表示变长字符类型，VARCHAR(N)中的N表示最多可以占用字节数，最大长度4000字节。</li>
-<li>DATE：用于定义日期时间的数据，长度为7个字节，默认格式：DD-MON-RR。</li>
+        <h1 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h1><h2 id="字符串类型"><a href="#字符串类型" class="headerlink" title="字符串类型"></a>字符串类型</h2><ul>
+<li>CHAR存放定长字符，不满补空格，默认单位是字节，可以指定为字符，如CHAR（10 CHAR）表示20字节</li>
+<li>VARCHAR2存放变长字符，存多少占用多少，默认单位是字节，可以指定单位为字符</li>
+<li>LONG：VARCHAR2加长版，存储变长字符串，最多2GB字符串数据。但是有诸多限制：每个表只能有一个LONG类的列，不能作为主键，不能建立索引，不能出现在查询条件中等。</li>
+<li>CLOB：存储定长或变长字符串，最多4GB字符串数据，没有LONG的限制。</li>
 </ul>
-<h1 id="创建表"><a href="#创建表" class="headerlink" title="创建表"></a>创建表</h1><p>CREATE语句：<br>    CREATE TABLE table_name(<br>        column_name datatype,…<br>    );</p>
-<p>DESC语句：查看表结构<br>    DESC table_name;  </p>
-<p>DEFAULT语句：可以通过DEFAULT给表中某列指定默认值<br>NOT NULL：是一种非空约束，确保字段值不为空。  </p>
-<h1 id="修改表"><a href="#修改表" class="headerlink" title="修改表"></a>修改表</h1><p>修改表名：<code>RENAME old_table_name TO new_name</code><br>增加列：<code>ALTER TABLE table_name ADD(column_name datatype,...);</code><br>删除列：<code>ALTER TABLE table_name DROP(column_name);</code><br>修改列：<code>ALTER TABLE table_name MODIFY(column_name datatype,...);</code>修改仅对以后插入的数据有效，若把长度改小有可能不成功。  </p>
-<h1 id="DML语句"><a href="#DML语句" class="headerlink" title="DML语句"></a>DML语句</h1><p>INSERT语句：给数据表增加记录，DML语句需要执行commit之后才算真正确认了此操作，如果插入列有日期字段，可以使用TO_DATE函数自定义转换为日期类型的数据<br>    INSERT INTO table_name(column_name,…)<br>    VALUES(value,…)</p>
-<p>UPDATE语句：<br>    UPDATE table_name<br>    SET column_name = value,…<br>    [WHERE condition];<br>如果没有<code>WHERE</code>子句，则全表数据会被更新。</p>
-<p>DELETE语句：<br>    DELETE table_name [WHERE condition];<br>如果没有WHERE子句，则全表数据会被删除。（如果想删除全表数据，使用DDL语句中的TRUNCATE语句效率更高，但是一旦执行无法撤销）</p>
+<h2 id="字符串函数"><a href="#字符串函数" class="headerlink" title="字符串函数"></a>字符串函数</h2><ul>
+<li>CONCAT(char1,char2)返回字符串连接后的结果，等价于连接操作符”||”，如果连接的某一个字符串为null，相当于连接了一个空格。过个字符串连接用”||”更方便直观。</li>
+<li>LENGTH(char)：返回字符串的长度，如果字符串是VARCHAR2返回实际长度，如果是CHAR返回长度还包括后补的空格。</li>
+<li>UPPER(char)：将字符串转换为大写形式</li>
+<li>LOWER(char)：将字符串转换为小写形式</li>
+<li>INITCAP(char)：将字符串转换为首字符大写，其他小写，以空格分割</li>
+<li>TRIM(c2 from c1)：从c1前后截去c2</li>
+<li>LTRIM(c1,c2)：从c1左边截去c2，省略c2则截去空格</li>
+<li>RTRIM(c1,c2)：从c1右边截去c2，省略c2则截去空格</li>
+<li>LPAD(char1,n,char2)：左部位函数，在char1左边补n个char2</li>
+<li>RPAD(char1,n,char2)：右部位函数，在char1右边补n个char2</li>
+<li>SUBSTR(char,m[,n])：返回char中从第m位开始截取n个字符，省略n或n超过长度则截取到末尾，下标是从1开始，m为0则从首字母开始，若为负数则从尾部开始</li>
+<li>INSTR(char1,char2[,m[,n]])：返回char2在char1中的位置，从m位开始第n次出现的位置，省略则从第1位开始，查找不到返回0</li>
+</ul>
+<h1 id="数值"><a href="#数值" class="headerlink" title="数值"></a>数值</h1><h2 id="数值类型"><a href="#数值类型" class="headerlink" title="数值类型"></a>数值类型</h2><ul>
+<li>NUMBER(P,S)，S为小数位数，省略S则表示整数，P表示总位数，取值1-38，省略P只写S则P默认为38</li>
+</ul>
+<h2 id="数值函数"><a href="#数值函数" class="headerlink" title="数值函数"></a>数值函数</h2><ul>
+<li>ROUND(m[,n])：表示数字m四舍五入到n为位小数，若n为0则四舍五入到整数，n为负数则四舍五入到小数点前n位，若n省略则默认值为0</li>
+<li>TRANC(m[,n])：m和n的定义和ROUND中一样，功能是截取</li>
+<li>MOD(m,n)：返回m除以n后的余数</li>
+<li>CEIL(n)：取大于或等于n的最小整数值</li>
+<li>FLOOR(n)：取小于或等于n的最大整数值</li>
+</ul>
+<h1 id="日期"><a href="#日期" class="headerlink" title="日期"></a>日期</h1><h2 id="日期类型"><a href="#日期类型" class="headerlink" title="日期类型"></a>日期类型</h2><ul>
+<li>DATE固定存储7个字节，分别对应世纪+100，年，月，日，时+1，分+1，秒+1</li>
+<li>TIMESTAMP：可以保存小数秒，最高精度到纳秒。若精度为0，则与DATE功能相同，用7个字节存储，若精度大于0，则用11个字节存储，第1-7字节与DATE相同，第8-11字节为纳秒。</li>
+</ul>
+<h2 id="日期关键字"><a href="#日期关键字" class="headerlink" title="日期关键字"></a>日期关键字</h2><ul>
+<li>SYSDATE：返回当前系统时间，精确到秒，默认格式：DD-MON-RR</li>
+<li>SYSTIMESTAMP：返回当前系统日期和时间，精确到毫秒</li>
+</ul>
+<h2 id="日期转换函数"><a href="#日期转换函数" class="headerlink" title="日期转换函数"></a>日期转换函数</h2><ul>
+<li>TO_DATE(char,format)：将字符串按照指定形式转换为日期</li>
+<li>TO_CHAR(date,format)：将日期按照指定形式转换为字符串，若格式中出现中文需要用双引号括起来，Oracle中字符串用单引号</li>
+</ul>
+<h2 id="日期常用函数"><a href="#日期常用函数" class="headerlink" title="日期常用函数"></a>日期常用函数</h2><ul>
+<li>LAST_DATE(date)：返回日期所在月最后一天</li>
+<li>ADD_MONTHS(date,i)：返回日期加上i个月后的日期</li>
+<li>MONTHS_BETWEEN(date1,date2:)：两个日期之间间隔多少个月，date1-date2</li>
+<li>NEXT_DAY(date,char)：下一个周几，1-7表示周日到周六</li>
+<li>LEAST(expr1,expr2…)：返回参数值中的最小值</li>
+<li>GREATEST(expr1,expr2…)：返回参数值中的最大值</li>
+<li>EXTRACT(date FROM datetime)：从日期datetime中返回一个指定分量</li>
+</ul>
+<h1 id="空值操作"><a href="#空值操作" class="headerlink" title="空值操作"></a>空值操作</h1><h2 id="NULL条件查询"><a href="#NULL条件查询" class="headerlink" title="NULL条件查询"></a>NULL条件查询</h2><p>NULL不等于任何值，查询是否为空时不能用 = 判断，应该有 IS 判断</p>
+<h2 id="空值函数"><a href="#空值函数" class="headerlink" title="空值函数"></a>空值函数</h2><p>NVL(expr1,expr2)：如果expr1为NULL则返回expr2，否则返回本身<br>NVL2(expr1,expr2,expr3)：如果expr1不为NULL，返回expr2，如果为NULL则返回expr3</p>
 
       
     </div>
@@ -389,17 +401,13 @@ SQ">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/10/22/XML/" rel="next" title="XML">
-                <i class="fa fa-chevron-left"></i> XML
+              <a href="/2016/10/23/数据库基础/" rel="next" title="数据库基础">
+                <i class="fa fa-chevron-left"></i> 数据库基础
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/10/29/Oracle数据类型与函数/" rel="prev" title="Oracle数据类型与函数">
-                Oracle数据类型与函数 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -513,7 +521,7 @@ SQ">
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#SQL"><span class="nav-number">1.</span> <span class="nav-text">SQL</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据定义语言-DDL"><span class="nav-number">1.1.</span> <span class="nav-text">数据定义语言(DDL)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据操纵语言-DML"><span class="nav-number">1.2.</span> <span class="nav-text">数据操纵语言(DML)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事务控制语言-TCL"><span class="nav-number">1.3.</span> <span class="nav-text">事务控制语言(TCL)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据查询语言-DQL"><span class="nav-number">1.4.</span> <span class="nav-text">数据查询语言(DQL)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据控制语言-DCL"><span class="nav-number">1.5.</span> <span class="nav-text">数据控制语言(DCL)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Oracle数据类型"><span class="nav-number">2.</span> <span class="nav-text">Oracle数据类型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#创建表"><span class="nav-number">3.</span> <span class="nav-text">创建表</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#修改表"><span class="nav-number">4.</span> <span class="nav-text">修改表</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DML语句"><span class="nav-number">5.</span> <span class="nav-text">DML语句</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#字符串"><span class="nav-number">1.</span> <span class="nav-text">字符串</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串类型"><span class="nav-number">1.1.</span> <span class="nav-text">字符串类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串函数"><span class="nav-number">1.2.</span> <span class="nav-text">字符串函数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数值"><span class="nav-number">2.</span> <span class="nav-text">数值</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数值类型"><span class="nav-number">2.1.</span> <span class="nav-text">数值类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数值函数"><span class="nav-number">2.2.</span> <span class="nav-text">数值函数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#日期"><span class="nav-number">3.</span> <span class="nav-text">日期</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#日期类型"><span class="nav-number">3.1.</span> <span class="nav-text">日期类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#日期关键字"><span class="nav-number">3.2.</span> <span class="nav-text">日期关键字</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#日期转换函数"><span class="nav-number">3.3.</span> <span class="nav-text">日期转换函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#日期常用函数"><span class="nav-number">3.4.</span> <span class="nav-text">日期常用函数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#空值操作"><span class="nav-number">4.</span> <span class="nav-text">空值操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#NULL条件查询"><span class="nav-number">4.1.</span> <span class="nav-text">NULL条件查询</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#空值函数"><span class="nav-number">4.2.</span> <span class="nav-text">空值函数</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
