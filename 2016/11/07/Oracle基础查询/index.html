@@ -84,25 +84,25 @@
 
 
 
-<meta name="description" content="数据库(Database)，简称DB，是按照数据结构来组织、存储和管理数据的仓库。数据库管理系统(Database Management System)，简称DBMS，是管理数据库的软件。一个关系数据库由多个数据表组成，数据表是关系数据库的基本存储结构。表是二维的，表的行称为记录，表的列称为字段。  
-SQLSQL(Structured Query Language)：结构化查询语言。  
-
-SQ">
+<meta name="description" content="基本查询语句FROM子句SELECT */列名,... FROM table_name;
+SELECT：用于指定要查询的列，*表示查询所有列FROM：指定查询的表  
+使用别名使用列的别，在查询的列后面加上别名，用空格或者 AS 隔开，如果希望别名中区分大小写或者有空格，需要用双引号括起来。
+WHERE子句在SELECT语句中，可以在WHERE子句中使用比较操作符限制查询结果，如果是和字符串或者日">
 <meta property="og:type" content="article">
-<meta property="og:title" content="数据库基础">
-<meta property="og:url" content="http://yoursite.com/2016/10/23/数据库基础/index.html">
+<meta property="og:title" content="Oracle基础查询">
+<meta property="og:url" content="http://yoursite.com/2016/11/07/Oracle基础查询/index.html">
 <meta property="og:site_name" content="李铕同学">
-<meta property="og:description" content="数据库(Database)，简称DB，是按照数据结构来组织、存储和管理数据的仓库。数据库管理系统(Database Management System)，简称DBMS，是管理数据库的软件。一个关系数据库由多个数据表组成，数据表是关系数据库的基本存储结构。表是二维的，表的行称为记录，表的列称为字段。  
-SQLSQL(Structured Query Language)：结构化查询语言。  
-
-SQ">
-<meta property="og:updated_time" content="2016-10-29T14:25:03.508Z">
+<meta property="og:description" content="基本查询语句FROM子句SELECT */列名,... FROM table_name;
+SELECT：用于指定要查询的列，*表示查询所有列FROM：指定查询的表  
+使用别名使用列的别，在查询的列后面加上别名，用空格或者 AS 隔开，如果希望别名中区分大小写或者有空格，需要用双引号括起来。
+WHERE子句在SELECT语句中，可以在WHERE子句中使用比较操作符限制查询结果，如果是和字符串或者日">
+<meta property="og:updated_time" content="2016-11-18T08:06:08.855Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="数据库基础">
-<meta name="twitter:description" content="数据库(Database)，简称DB，是按照数据结构来组织、存储和管理数据的仓库。数据库管理系统(Database Management System)，简称DBMS，是管理数据库的软件。一个关系数据库由多个数据表组成，数据表是关系数据库的基本存储结构。表是二维的，表的行称为记录，表的列称为字段。  
-SQLSQL(Structured Query Language)：结构化查询语言。  
-
-SQ">
+<meta name="twitter:title" content="Oracle基础查询">
+<meta name="twitter:description" content="基本查询语句FROM子句SELECT */列名,... FROM table_name;
+SELECT：用于指定要查询的列，*表示查询所有列FROM：指定查询的表  
+使用别名使用列的别，在查询的列后面加上别名，用空格或者 AS 隔开，如果希望别名中区分大小写或者有空格，需要用双引号括起来。
+WHERE子句在SELECT语句中，可以在WHERE子句中使用比较操作符限制查询结果，如果是和字符串或者日">
 
 
 
@@ -123,9 +123,9 @@ SQ">
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/10/23/数据库基础/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/11/07/Oracle基础查询/"/>
 
-  <title> 数据库基础 | 李铕同学 </title>
+  <title> Oracle基础查询 | 李铕同学 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -255,7 +255,7 @@ SQ">
             
             
               
-                数据库基础
+                Oracle基础查询
               
             
           </h1>
@@ -267,8 +267,8 @@ SQ">
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-23T16:36:54+08:00" content="2016-10-23">
-              2016-10-23
+            <time itemprop="dateCreated" datetime="2016-11-07T23:59:15+08:00" content="2016-11-07">
+              2016-11-07
             </time>
           </span>
 
@@ -314,50 +314,55 @@ SQ">
       
 
       
-        <p>数据库(Database)，简称DB，是按照数据结构来组织、存储和管理数据的仓库。<br>数据库管理系统(Database Management System)，简称DBMS，是管理数据库的软件。<br>一个关系数据库由多个数据表组成，数据表是关系数据库的基本存储结构。表是二维的，表的行称为记录，表的列称为字段。  </p>
-<h1 id="SQL"><a href="#SQL" class="headerlink" title="SQL"></a>SQL</h1><p>SQL(Structured Query Language)：结构化查询语言。  </p>
-<blockquote>
-<p>SQL可以分为：</p>
-</blockquote>
-<h2 id="数据定义语言-DDL"><a href="#数据定义语言-DDL" class="headerlink" title="数据定义语言(DDL)"></a>数据定义语言(DDL)</h2><p>用于建立、修改、删除数据库对象，包括：  </p>
-<ol>
-<li>CREATE：创建表或其他对象结构  </li>
-<li>ALTER：修改表或其他对象结构  </li>
-<li>DROP：删除表或其他对象结构  </li>
-<li>TRUNCATE：删除表数据，不删除表结构  </li>
-</ol>
-<h2 id="数据操纵语言-DML"><a href="#数据操纵语言-DML" class="headerlink" title="数据操纵语言(DML)"></a>数据操纵语言(DML)</h2><p>用于该边数据表中的数据，和事务相关，执行完后需要经过事务控制语言提交后才真正的将改变应用到数据库中。包括：  </p>
-<ol>
-<li>INSERT：向数据表中插入数据  </li>
-<li>UPDATE：更新数据表中已存在的数据  </li>
-<li>DELETE：删除数据表中的数据  </li>
-</ol>
-<h2 id="事务控制语言-TCL"><a href="#事务控制语言-TCL" class="headerlink" title="事务控制语言(TCL)"></a>事务控制语言(TCL)</h2><p>用来维护数据一致性的语句，包括：  </p>
-<ol>
-<li>COMMIT：提交，确认数据改变  </li>
-<li>ROLLBACK：回滚，取消已经进行的数据改变  </li>
-<li>SAVEPOINT：保存点，使当前事务退回到指定的保存点，便于取消部分改变</li>
-</ol>
-<h2 id="数据查询语言-DQL"><a href="#数据查询语言-DQL" class="headerlink" title="数据查询语言(DQL)"></a>数据查询语言(DQL)</h2><p>用来查询所需的数据，SELECT语句</p>
-<h2 id="数据控制语言-DCL"><a href="#数据控制语言-DCL" class="headerlink" title="数据控制语言(DCL)"></a>数据控制语言(DCL)</h2><p>用于执行权限的授予与回收操作，包括：  </p>
-<ol>
-<li>GRANT：授予，用于给用户或角色授予权限  </li>
-<li>REVOKE：用于回收用户或角色已有的权限  </li>
-<li>CREATE USER：创建用户  </li>
-</ol>
-<h1 id="Oracle数据类型"><a href="#Oracle数据类型" class="headerlink" title="Oracle数据类型"></a>Oracle数据类型</h1><ul>
-<li>NUMBER：表示数字类型，常被定义成Number(P，S)，P表示数字总位数，S表示小数点后位数。</li>
-<li>CHAR：表示固定长度字符类型，CHAR(N)中的N表示占用字节数，最大长度2000字节。</li>
-<li>VARCHAR2：表示变长字符类型，VARCHAR(N)中的N表示最多可以占用字节数，最大长度4000字节。</li>
-<li>DATE：用于定义日期时间的数据，长度为7个字节，默认格式：DD-MON-RR。</li>
+        <h1 id="基本查询语句"><a href="#基本查询语句" class="headerlink" title="基本查询语句"></a>基本查询语句</h1><h2 id="FROM子句"><a href="#FROM子句" class="headerlink" title="FROM子句"></a>FROM子句</h2><pre><code>SELECT */列名,... FROM table_name;
+</code></pre><p>SELECT：用于指定要查询的列，*表示查询所有列<br>FROM：指定查询的表  </p>
+<h2 id="使用别名"><a href="#使用别名" class="headerlink" title="使用别名"></a>使用别名</h2><p>使用列的别，在查询的列后面加上别名，用空格或者 <code>AS</code> 隔开，如果希望别名中区分大小写或者有空格，需要用双引号括起来。</p>
+<h2 id="WHERE子句"><a href="#WHERE子句" class="headerlink" title="WHERE子句"></a>WHERE子句</h2><p>在SELECT语句中，可以在WHERE子句中使用比较操作符限制查询结果，如果是和字符串或者日期类型比较，需要用单引号括起来</p>
+<h2 id="SELECT子句"><a href="#SELECT子句" class="headerlink" title="SELECT子句"></a>SELECT子句</h2><p>如果只查询表的部分列，在SELECT后指定列名</p>
+<h1 id="查询条件"><a href="#查询条件" class="headerlink" title="查询条件"></a>查询条件</h1><ul>
+<li>不等于使用 <code>&lt;&gt;</code> 其他比较符用法一样 </li>
+<li>AND：逻辑与</li>
+<li>OR：逻辑或</li>
+<li>LIKE：用于模糊查询，其中通配符 <code>%</code> 表示0到多个字符， <code>_</code> 表示单个字符</li>
+<li>IN(list)：取出符合列表范围中的数据</li>
+<li>NOT IN    (list)：取出不符合列表范围中的数据</li>
+<li>BETWEEN…AND…：查询符合某个范围的数据</li>
+<li>IS NULL/IS NOT NULL：用于判断是否为空值</li>
+<li>ALL/ANY：不能单独使用，必须和比较操作符一起使用</li>
+<li>DISTINCT：去除重复列</li>
 </ul>
-<h1 id="创建表"><a href="#创建表" class="headerlink" title="创建表"></a>创建表</h1><p>CREATE语句：<br>    CREATE TABLE table_name(<br>        column_name datatype,…<br>    );</p>
-<p>DESC语句：查看表结构<br>    DESC table_name;  </p>
-<p>DEFAULT语句：可以通过DEFAULT给表中某列指定默认值<br>NOT NULL：是一种非空约束，确保字段值不为空。  </p>
-<h1 id="修改表"><a href="#修改表" class="headerlink" title="修改表"></a>修改表</h1><p>修改表名：<code>RENAME old_table_name TO new_name</code><br>增加列：<code>ALTER TABLE table_name ADD(column_name datatype,...);</code><br>删除列：<code>ALTER TABLE table_name DROP(column_name);</code><br>修改列：<code>ALTER TABLE table_name MODIFY(column_name datatype,...);</code>修改仅对以后插入的数据有效，若把长度改小有可能不成功。  </p>
-<h1 id="DML语句"><a href="#DML语句" class="headerlink" title="DML语句"></a>DML语句</h1><p>INSERT语句：给数据表增加记录，DML语句需要执行commit之后才算真正确认了此操作，如果插入列有日期字段，可以使用TO_DATE函数自定义转换为日期类型的数据<br>    INSERT INTO table_name(column_name,…)<br>    VALUES(value,…)</p>
-<p>UPDATE语句：<br>    UPDATE table_name<br>    SET column_name = value,…<br>    [WHERE condition];<br>如果没有<code>WHERE</code>子句，则全表数据会被更新。</p>
-<p>DELETE语句：<br>    DELETE table_name [WHERE condition];<br>如果没有WHERE子句，则全表数据会被删除。（如果想删除全表数据，使用DDL语句中的TRUNCATE语句效率更高，但是一旦执行无法撤销）</p>
+<h1 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h1><p>使用 <code>ORDER BY</code> 子句，必须出现在SELECT中的最后一句，用 <code>ASC</code> 来指定升序排序，默认为升序， <code>DESC</code> 来指定降序排序，NULL值视为最大。<br>当以多列作为排序时，按列的次序进行排序，每一列需要单独设置排序方式。</p>
+<h1 id="聚合函数"><a href="#聚合函数" class="headerlink" title="聚合函数"></a>聚合函数</h1><ul>
+<li>MAX：取得列或表达式的最大值</li>
+<li>MIN：取得列或表达式的最小值</li>
+<li>AVG：统计列或表达式的平均值</li>
+<li>SUM：统计列或表达式的和值</li>
+<li>COUNT：计算表中的记录条数</li>
+</ul>
+<font color="red" size="2"><br>聚合函数会忽略NULL值，如果需要统计可以使用空值函数NVL对相应的字段进行处理。<br></font>
+
+<h1 id="分组"><a href="#分组" class="headerlink" title="分组"></a>分组</h1><p><code>GROUP BY</code> 子句根据分组的条件将表进行分组，每组返回一个结果。<br><code>HAVING</code> 子句用来对分组后的结果进一步限制，必须跟在GROUP BY后面，不能单独使用。</p>
+<h1 id="查询语句执行顺序"><a href="#查询语句执行顺序" class="headerlink" title="查询语句执行顺序"></a>查询语句执行顺序</h1><ol>
+<li>FROM：执行顺序为从后往前，从右到左，数据量少的表尽量放在后面</li>
+<li>WHERE：执行顺序为从下到上，从右到左，能过滤大量记录的条件写在WHERE最右</li>
+<li>GROUP BY：从左到右分组，最好在分组前使用WHERE将不需要的记录过滤掉</li>
+<li>HAVING：尽量避免使用，HAVING会对所有记录检索一遍后才对结果集进行过滤，需要排序等操作，消耗资源</li>
+<li>SELECT：少用*，尽量用字段名称</li>
+<li>ORDER BY：执行顺序为从左到右，消耗资源</li>
+</ol>
+<h1 id="关联查询"><a href="#关联查询" class="headerlink" title="关联查询"></a>关联查询</h1><p>查询两个或两个以上的数据表或视图的查询叫做连接查询。<br>笛卡尔积是指关联操作中每个表中的每一行数据都和其他表的每一行做组合，返回 M*N 条记录。  </p>
+<h2 id="内连接"><a href="#内连接" class="headerlink" title="内连接"></a>内连接</h2><pre><code>table_1 JOIN table_2
+ON condition
+</code></pre><p>不满足连接条件的记录不会出现在结果集中</p>
+<h2 id="外连接"><a href="#外连接" class="headerlink" title="外连接"></a>外连接</h2><p>外连接进行关联查询时除了会返回满足连接条件的记录，也会返回不满足连接条件的记录 </p>
+<pre><code>table_1 LEFT|RIGHT|FULL JOIN table_2
+ON condition
+</code></pre><ul>
+<li>左外连接：以JOIN左侧表作为驱动表，该表所有记录都显示出来，当不满足条件时，该记录中来自JOIN右表中的全部字段为NULL</li>
+<li>右外连接：以JOIN右侧表作为驱动表，该表所有记录都显示出来，当不满足条件时，该记录中来自JOIN左表中的全部字段为NULL</li>
+<li>全外连接：是左外连接和右外连接的查询结果的总和</li>
+</ul>
+<h2 id="自连接"><a href="#自连接" class="headerlink" title="自连接"></a>自连接</h2><p>保存的数据是当前表的一条记录，可以对应当前表的多条记录，用于解决记录属性相同但记录间又存在上下级关系的树状结构时使用，通过将表用别名虚拟成两个表的方式实现。</p>
 
       
     </div>
@@ -389,17 +394,13 @@ SQ">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/10/22/XML/" rel="next" title="XML">
-                <i class="fa fa-chevron-left"></i> XML
+              <a href="/2016/10/29/Oracle数据类型与函数/" rel="next" title="Oracle数据类型与函数">
+                <i class="fa fa-chevron-left"></i> Oracle数据类型与函数
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/10/29/Oracle数据类型与函数/" rel="prev" title="Oracle数据类型与函数">
-                Oracle数据类型与函数 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -513,7 +514,7 @@ SQ">
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#SQL"><span class="nav-number">1.</span> <span class="nav-text">SQL</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据定义语言-DDL"><span class="nav-number">1.1.</span> <span class="nav-text">数据定义语言(DDL)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据操纵语言-DML"><span class="nav-number">1.2.</span> <span class="nav-text">数据操纵语言(DML)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事务控制语言-TCL"><span class="nav-number">1.3.</span> <span class="nav-text">事务控制语言(TCL)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据查询语言-DQL"><span class="nav-number">1.4.</span> <span class="nav-text">数据查询语言(DQL)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据控制语言-DCL"><span class="nav-number">1.5.</span> <span class="nav-text">数据控制语言(DCL)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Oracle数据类型"><span class="nav-number">2.</span> <span class="nav-text">Oracle数据类型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#创建表"><span class="nav-number">3.</span> <span class="nav-text">创建表</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#修改表"><span class="nav-number">4.</span> <span class="nav-text">修改表</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DML语句"><span class="nav-number">5.</span> <span class="nav-text">DML语句</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#基本查询语句"><span class="nav-number">1.</span> <span class="nav-text">基本查询语句</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#FROM子句"><span class="nav-number">1.1.</span> <span class="nav-text">FROM子句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用别名"><span class="nav-number">1.2.</span> <span class="nav-text">使用别名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WHERE子句"><span class="nav-number">1.3.</span> <span class="nav-text">WHERE子句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SELECT子句"><span class="nav-number">1.4.</span> <span class="nav-text">SELECT子句</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#查询条件"><span class="nav-number">2.</span> <span class="nav-text">查询条件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#排序"><span class="nav-number">3.</span> <span class="nav-text">排序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#聚合函数"><span class="nav-number">4.</span> <span class="nav-text">聚合函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#分组"><span class="nav-number">5.</span> <span class="nav-text">分组</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#查询语句执行顺序"><span class="nav-number">6.</span> <span class="nav-text">查询语句执行顺序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#关联查询"><span class="nav-number">7.</span> <span class="nav-text">关联查询</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#内连接"><span class="nav-number">7.1.</span> <span class="nav-text">内连接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#外连接"><span class="nav-number">7.2.</span> <span class="nav-text">外连接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自连接"><span class="nav-number">7.3.</span> <span class="nav-text">自连接</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
